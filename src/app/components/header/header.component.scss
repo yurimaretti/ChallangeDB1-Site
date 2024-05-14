@@ -1,21 +1,19 @@
 .app-header {
-  .mat-toolbar {
-    background-color: #15E7D4;
-    color: #fff;
-    padding: 0 16rem;
-  }
+  background-color: #15E7D4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;
 
-  .logo {
-    height: 3rem;
-  }
-
-  .spacer {
-    flex: 1 1 auto;
-  }
-
-  h1 {
+  a {
     color: #000;
     font-size: 2rem;
     font-weight: 700;
+    padding-left: 3rem;
+  }
+
+  img {
+    height: 5rem;
+    padding-right: 3rem;
   }
 }
