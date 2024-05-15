@@ -6,36 +6,35 @@
 
   <!-- Card -->
 
-  <div class="card">
-    <div class="card-body">
+  <app-card [titulo]="'Bem vindo!'" [width]="'30%'">
 
-      <!-- Formulário login -->
+    <!-- Formulário login -->
 
-      <h3 class="text-center">Bem vindo!</h3>
-      <div class="mb-3">
-        <label for="emailUsuario" class="form-label">Email</label>
-        <input type="email" class="form-control" id="emailUsuario" placeholder="Informe seu e-mail">
-      </div>
-      <div class="mb-3">
-        <label for="senhaUsuario" class="form-label">Senha</label>
-        <input type="password" id="senhaUsuario" class="form-control" placeholder="Informe sua senha">
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aprendiz" value="aprendiz">
-        <label class="form-check-label" for="aprendiz">Aprendiz</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mentor" value="mentor">
-        <label class="form-check-label" for="mentor">Mentor</label>
-      </div>
-      <button type="button" class="btn btn-dark d-block my-4 w-100">Login</button>
-
-      <!-- Opção de cadastro -->
-
-      <hr class="hr" />
-      <p class="text-center">Ainda não é cadastrado?</p>
-      <button type="button" class="btn btn-outline-secondary w-100">Cadastre-se</button>
+    <div class="mb-3">
+      <label for="emailUsuario" class="form-label">Email</label>
+      <input type="email" class="form-control" id="emailUsuario" placeholder="Informe seu e-mail">
     </div>
-  </div>
+    <div class="mb-3">
+      <label for="senhaUsuario" class="form-label">Senha</label>
+      <input type="password" id="senhaUsuario" class="form-control" placeholder="Informe sua senha">
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aprendiz" value="aprendiz">
+      <label class="form-check-label" for="aprendiz">Aprendiz</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mentor" value="mentor">
+      <label class="form-check-label" for="mentor">Mentor</label>
+    </div>
+    <button type="button" class="btn btn-dark d-block my-4 w-100">Login</button>
+
+    <!-- Opção de cadastro -->
+
+    <hr class="hr" />
+    <p class="text-center">Ainda não é cadastrado?</p>
+    <button type="button" class="btn btn-outline-secondary w-100">Cadastre-se</button>
+
+  </app-card>
+
 </section>
 
