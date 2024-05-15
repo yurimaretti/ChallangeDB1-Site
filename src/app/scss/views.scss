@@ -1,0 +1,13 @@
+.pg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  .titulo-pg {
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    align-self: center;
+  }
+}

@@ -1,3 +1,4 @@
+import { Genero } from './../../enums/generos';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent {
-
+  generosEnum = Object.values(Genero);
 }

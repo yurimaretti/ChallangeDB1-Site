@@ -1,1 +1,64 @@
-<p>cadastro works!</p>
+<section class="pg">
+
+  <!-- Título da página -->
+
+  <h2 class="titulo-pg">Cadastre-se</h2>
+
+  <!-- Card -->
+
+  <app-card [titulo]="'Cadastro'" [width]="'70%'">
+
+    <!-- Formulário cadastro -->
+
+    <div class="row mb-3">
+      <div class="col">
+        <label for="nomeUsuario" class="form-label">Nome</label>
+        <input type="nome" class="form-control" id="nomeUsuario" placeholder="Informe seu nome">
+      </div>
+      <div class="col">
+        <label for="emailUsuario" class="form-label">Email</label>
+        <input type="email" class="form-control" id="emailUsuario" placeholder="Informe seu e-mail">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col">
+        <label for="genero" class="form-label">Gênero</label>
+        <select id="genero" class="form-select">
+          <option *ngFor="let genero of generosEnum" [value]="genero">{{ genero }}</option>
+        </select>
+      </div>
+      <div class="col">
+        <p class="mb-3">Tipo do cadastro</p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aprendiz" value="aprendiz">
+          <label class="form-check-label" for="aprendiz">Aprendiz</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mentor" value="mentor">
+          <label class="form-check-label" for="mentor">Mentor</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Definição da senha -->
+
+    <p class="text-center mb-1">Defina a senha</p>
+    <hr class="hr mb-4" />
+
+    <div class="row mb-3">
+      <div class="col">
+        <label for="senhaUsuario1" class="form-label">Senha</label>
+        <input type="senha" class="form-control" id="senhaUsuario1" placeholder="Informe sua senha">
+      </div>
+      <div class="col">
+        <label for="senhaUsuario2" class="form-label">Confirme sua senha</label>
+        <input type="senha" class="form-control" id="senhaUsuario2" placeholder="Informe novamente sua senha">
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-dark d-block mt-5 mx-auto w-50" routerLink="/login">Cadastrar</button>
+
+  </app-card>
+
+</section>
+
