@@ -1,5 +1,9 @@
 @use "../../scss/views.scss";
 
-.negrito{
-  font-weight: 700;
+.area-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
 }

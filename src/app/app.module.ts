@@ -9,7 +9,7 @@ import { CardComponent } from './components/card/card.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { CardAprendizComponent } from './components/card-aprendiz/card-aprendiz.component';
-import { CardMentorComponent } from './card-mentor/card-mentor.component';
+import { CardMentorComponent } from './components/card-mentor/card-mentor.component';
 
 @NgModule({
   declarations: [
