@@ -4,6 +4,7 @@ import { LoginComponent } from './views/login/login.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { EditarPerfilComponent } from './views/editar-perfil/editar-perfil.component';
+import { AlterarSenhaComponent } from './views/alterar-senha/alterar-senha.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'editar-perfil',
     component: EditarPerfilComponent
+  },
+  {
+    path: 'alterar-senha',
+    component: AlterarSenhaComponent
   }
 ];
 

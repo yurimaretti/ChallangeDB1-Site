@@ -1,0 +1,44 @@
+<section class="pg">
+
+  <!-- Título da página -->
+
+  <h2 class="titulo-pg">Alterar Senha</h2>
+
+  <!-- Card -->
+
+  <app-card [titulo]="''" [width]="'42%'" class="mb-3">
+
+    <!-- Campos: 'Senha' e 'Confirme a senha' -->
+
+    <div class="row mb-3">
+      <div class="col">
+        <label for="senhaUsuario1" class="form-label">Nova Senha</label>
+        <input type="senha" class="form-control" id="senhaUsuario1" placeholder="Informe sua nova senha">
+      </div>
+      <div class="col">
+        <label for="senhaUsuario2" class="form-label">Confirme sua senha</label>
+        <input type="senha" class="form-control" id="senhaUsuario2" placeholder="Informe novamente sua nova senha">
+      </div>
+    </div>
+
+    <!-- Botões de 'Cancelar' e 'Voltar' -->
+
+    <div class="row mt-5 mb-3">
+
+      <div class="col">
+        <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-perfil">
+          Cancelar
+        </button>
+      </div>
+
+      <div class="col">
+        <button type="button" class="btn btn-dark d-block mx-auto w-50" routerLink="/editar-perfil">
+          Salvar
+        </button>
+      </div>
+
+    </div>
+
+  </app-card>
+
+</section>
