@@ -10,6 +10,7 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { CardAprendizComponent } from './components/card-aprendiz/card-aprendiz.component';
 import { CardMentorComponent } from './components/card-mentor/card-mentor.component';
+import { EditarPerfilComponent } from './views/editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardMentorComponent } from './components/card-mentor/card-mentor.compon
     CadastroComponent,
     InicioComponent,
     CardAprendizComponent,
-    CardMentorComponent
+    CardMentorComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,
