@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './views/login/login.component';
 import { CardComponent } from './components/card/card.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
+import { InicioComponent } from './views/inicio/inicio.component';
+import { CardAprendizComponent } from './components/card-aprendiz/card-aprendiz.component';
+import { CardMentorComponent } from './card-mentor/card-mentor.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
     HeaderComponent,
     LoginComponent,
     CardComponent,
-    CadastroComponent
+    CadastroComponent,
+    InicioComponent,
+    CardAprendizComponent,
+    CardMentorComponent
   ],
   imports: [
     BrowserModule,
