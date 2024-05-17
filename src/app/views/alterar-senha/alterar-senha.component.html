@@ -8,36 +8,55 @@
 
   <app-card [titulo]="''" [width]="'42%'" class="mb-3">
 
-    <!-- Campos: 'Senha' e 'Confirme a senha' -->
+    <form [formGroup]="formulario">
 
-    <div class="row mb-3">
-      <div class="col">
-        <label for="senhaUsuario1" class="form-label">Nova Senha</label>
-        <input type="senha" class="form-control" id="senhaUsuario1" placeholder="Informe sua nova senha">
+      <!-- Campos: 'Senha' e 'Confirme a senha' -->
+
+      <div class="row mb-3">
+
+        <div class="col">
+          <label for="senhaUsuario1" class="form-label">Nova Senha</label>
+          <input type="senha" class="form-control" id="senhaUsuario1" formControlName="senhaUsuario1" placeholder="Informe sua nova senha">
+          <div class="mensagem-erro mt-1" *ngIf="formulario.get('senhaUsuario1')?.errors?.['required'] && formulario.get('senhaUsuario1')?.touched">
+            Senha é obrigatória
+          </div>
+          <div class="mensagem-erro mt-1" *ngIf="formulario.get('senhaUsuario1')?.errors?.['minlength']">
+            Senha deve ter no mínimo 5 caracteres
+          </div>
+          <div class="mensagem-erro mt-1" *ngIf="formulario.get('senhaUsuario1')?.errors?.['maxlength']">
+            Senha deve ter no máximo 15 caracteres
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="senhaUsuario2" class="form-label">Confirme sua senha</label>
+          <input type="senha" class="form-control" id="senhaUsuario2" formControlName="senhaUsuario2" placeholder="Informe novamente sua nova senha">
+          <div *ngIf="formulario.errors?.['mustMatch'] && formulario.get('senhaUsuario2')?.touched">
+            <small class="text-danger">As senhas não coincidem.</small>
+          </div>
+        </div>
+
       </div>
-      <div class="col">
-        <label for="senhaUsuario2" class="form-label">Confirme sua senha</label>
-        <input type="senha" class="form-control" id="senhaUsuario2" placeholder="Informe novamente sua nova senha">
-      </div>
-    </div>
 
-    <!-- Botões de 'Cancelar' e 'Voltar' -->
+      <!-- Botões de 'Cancelar' e 'Voltar' -->
 
-    <div class="row mt-5 mb-3">
+      <div class="row mt-5 mb-3">
 
-      <div class="col">
-        <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-perfil">
-          Cancelar
-        </button>
-      </div>
+        <div class="col">
+          <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-perfil">
+            Cancelar
+          </button>
+        </div>
 
-      <div class="col">
-        <button type="button" class="btn btn-dark d-block mx-auto w-50" routerLink="/editar-perfil">
-          Salvar
-        </button>
+        <div class="col">
+          <button (click)="alterarSenha()" type="button" class="btn btn-dark d-block mx-auto w-50" [disabled]="!formulario.valid">
+            Salvar
+          </button>
+        </div>
+
       </div>
 
-    </div>
+    </form>
 
   </app-card>
 
