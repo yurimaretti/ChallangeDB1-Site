@@ -10,38 +10,64 @@
 
     <!-- Formulário inclusão formação -->
 
-    <label for="grau" class="form-label">Nível</label>
-    <select id="grau" class="form-select mb-3">
-      <option *ngFor="let grau of grauEnum" [value]="grau">{{ grau }}</option>
-    </select>
+    <form [formGroup]="formulario">
 
-    <div class="mb-3">
-      <label for="curso" class="form-label">Curso</label>
-      <input type="text" class="form-control" id="curso" placeholder="Informe o nome do curso">
-    </div>
-
-    <div class="mb-3">
-      <label for="instituicao" class="form-label">Instituição</label>
-      <input type="text" id="instituicao" class="form-control" placeholder="Informe o nome da Instituição de Ensino">
-    </div>
-
-    <!-- Botões de 'Cancelar' e 'Salvar' -->
-
-    <div class="row mt-5 mb-3">
-
-      <div class="col">
-        <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-formacao">
-          Cancelar
-        </button>
+      <div class="mb-3">
+        <label for="grau" class="form-label">Nível</label>
+        <select id="grau" class="form-select" formControlName="nivel">
+          <option *ngFor="let grau of grauEnum" [value]="grau">{{ grau }}</option>
+        </select>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('nivel')?.errors?.['required'] && formulario.get('nivel')?.touched">
+          Nível do curso é obrigatório
+        </div>
       </div>
 
-      <div class="col">
-        <button type="button" class="btn btn-dark d-block mx-auto w-50" routerLink="/editar-formacao">
-          Salvar
-        </button>
+      <div class="mb-3">
+        <label for="curso" class="form-label">Curso</label>
+        <input type="text" class="form-control" id="curso" formControlName="curso" placeholder="Informe o nome do curso">
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('curso')?.errors?.['required'] && formulario.get('curso')?.touched">
+          Nome do curso é obrigatório
+        </div>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('curso')?.errors?.['minlength']">
+          Nome do curso deve ter no mínimo 2 caracteres
+        </div>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('curso')?.errors?.['maxlength']">
+          Nome do curso deve ter no máximo 70 caracteres
+        </div>
       </div>
 
-    </div>
+      <div class="mb-3">
+        <label for="instituicao" class="form-label">Instituição</label>
+        <input type="text" id="instituicao" class="form-control" formControlName="instituicao" placeholder="Informe o nome da Instituição de Ensino">
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('instituicao')?.errors?.['required'] && formulario.get('instituicao')?.touched">
+          Nome da instituição é obrigatório
+        </div>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('instituicao')?.errors?.['minlength']">
+          Nome da instituição deve ter no mínimo 2 caracteres
+        </div>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('instituicao')?.errors?.['maxlength']">
+          Nome da instituição deve ter no máximo 70 caracteres
+        </div>
+      </div>
+
+      <!-- Botões de 'Cancelar' e 'Salvar' -->
+
+      <div class="row mt-5 mb-3">
+
+        <div class="col">
+          <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-formacao">
+            Cancelar
+          </button>
+        </div>
+
+        <div class="col">
+          <button (click)="cadastrarFormacao()" type="button" class="btn btn-dark d-block mx-auto w-50" [disabled]="!formulario.valid">
+            Salvar
+          </button>
+        </div>
+
+      </div>
+    </form>
 
   </app-card>
 
