@@ -10,23 +10,44 @@
 
     <!-- Formulário login -->
 
-    <div class="mb-3">
-      <label for="emailUsuario" class="form-label">Email</label>
-      <input type="email" class="form-control" id="emailUsuario" placeholder="Informe seu e-mail">
-    </div>
-    <div class="mb-3">
-      <label for="senhaUsuario" class="form-label">Senha</label>
-      <input type="password" id="senhaUsuario" class="form-control" placeholder="Informe sua senha">
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aprendiz" value="aprendiz">
-      <label class="form-check-label" for="aprendiz">Aprendiz</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mentor" value="mentor">
-      <label class="form-check-label" for="mentor">Mentor</label>
-    </div>
-    <button type="button" class="btn btn-dark d-block my-4 w-100" routerLink="/inicio">Login</button>
+    <form [formGroup]="formulario">
+
+      <div class="mb-3 col">
+        <label for="emailUsuario" class="form-label">Email</label>
+        <input type="email" class="form-control" id="emailUsuario" formControlName="emailUsuario" placeholder="Informe seu e-mail">
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('emailUsuario')?.errors?.['required'] && formulario.get('emailUsuario')?.touched">
+          E-mail é obrigatório
+        </div>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('emailUsuario')?.errors?.['email']">
+          Formato de e-mail inválido
+        </div>
+      </div>
+
+      <div class="mb-3 col">
+        <label for="senhaUsuario" class="form-label">Senha</label>
+        <input type="password" id="senhaUsuario" class="form-control" formControlName="senhaUsuario" placeholder="Informe sua senha">
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('senhaUsuario')?.errors?.['required'] && formulario.get('senhaUsuario')?.touched">
+          Senha é obrigatória
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="tipoCadastro" formControlName="tipoCadastro" id="aprendiz" value="aprendiz">
+          <label class="form-check-label" for="aprendiz">Aprendiz</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="tipoCadastro" formControlName="tipoCadastro" id="mentor" value="mentor">
+          <label class="form-check-label" for="mentor">Mentor</label>
+        </div>
+        <div class="mensagem-erro mt-1" *ngIf="formulario.get('tipoCadastro')?.errors?.['required'] && formulario.get('tipoCadastro')?.touched">
+          Tipo de cadastro é obrigatório
+        </div>
+      </div>
+
+      <button (click)="realizarLogin()" type="button" class="btn btn-dark d-block my-4 w-100" [disabled]="!formulario.valid">Login</button>
+
+    </form>
 
     <!-- Opção de cadastro -->
 
