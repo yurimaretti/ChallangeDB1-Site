@@ -8,6 +8,7 @@ import { AlterarSenhaComponent } from './views/alterar-senha/alterar-senha.compo
 import { EditarInteressesComponent } from './views/editar-interesses/editar-interesses.component';
 import { EditarFormacaoComponent } from './views/editar-formacao/editar-formacao.component';
 import { IncluirFormacaoComponent } from './views/incluir-formacao/incluir-formacao.component';
+import { MatchesComponent } from './views/matches/matches.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'incluir-formacao',
     component: IncluirFormacaoComponent
+  },
+  {
+    path: 'matches',
+    component: MatchesComponent
   }
 ];
 

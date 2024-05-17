@@ -17,6 +17,9 @@ import { CardFormMentorComponent } from './components/card-form-mentor/card-form
 import { CardFormAprendizComponent } from './components/card-form-aprendiz/card-form-aprendiz.component';
 import { EditarFormacaoComponent } from './views/editar-formacao/editar-formacao.component';
 import { IncluirFormacaoComponent } from './views/incluir-formacao/incluir-formacao.component';
+import { MatchesComponent } from './views/matches/matches.component';
+import { CardMatchAprendizComponent } from './components/card-match-aprendiz/card-match-aprendiz.component';
+import { CardMatchMentorComponent } from './components/card-match-mentor/card-match-mentor.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { IncluirFormacaoComponent } from './views/incluir-formacao/incluir-forma
     CardFormMentorComponent,
     CardFormAprendizComponent,
     EditarFormacaoComponent,
-    IncluirFormacaoComponent
+    IncluirFormacaoComponent,
+    MatchesComponent,
+    CardMatchAprendizComponent,
+    CardMatchMentorComponent
   ],
   imports: [
     BrowserModule,
