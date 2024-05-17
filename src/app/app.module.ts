@@ -13,6 +13,10 @@ import { CardMentorComponent } from './components/card-mentor/card-mentor.compon
 import { EditarPerfilComponent } from './views/editar-perfil/editar-perfil.component';
 import { AlterarSenhaComponent } from './views/alterar-senha/alterar-senha.component';
 import { EditarInteressesComponent } from './views/editar-interesses/editar-interesses.component';
+import { CardFormMentorComponent } from './components/card-form-mentor/card-form-mentor.component';
+import { CardFormAprendizComponent } from './components/card-form-aprendiz/card-form-aprendiz.component';
+import { EditarFormacaoComponent } from './views/editar-formacao/editar-formacao.component';
+import { IncluirFormacaoComponent } from './views/incluir-formacao/incluir-formacao.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { EditarInteressesComponent } from './views/editar-interesses/editar-inte
     CardMentorComponent,
     EditarPerfilComponent,
     AlterarSenhaComponent,
-    EditarInteressesComponent
+    EditarInteressesComponent,
+    CardFormMentorComponent,
+    CardFormAprendizComponent,
+    EditarFormacaoComponent,
+    IncluirFormacaoComponent
   ],
   imports: [
     BrowserModule,
