@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { passwordMatchValidator } from 'src/app/services/passwordMatchValidator';
@@ -8,7 +8,7 @@ import { passwordMatchValidator } from 'src/app/services/passwordMatchValidator'
   templateUrl: './alterar-senha.component.html',
   styleUrls: ['./alterar-senha.component.scss']
 })
-export class AlterarSenhaComponent {
+export class AlterarSenhaComponent implements OnInit {
   formulario!: FormGroup;
 
   constructor(

@@ -1,4 +1,4 @@
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Genero } from '../../enums/generos';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
