@@ -5,6 +5,7 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { EditarPerfilComponent } from './views/editar-perfil/editar-perfil.component';
 import { AlterarSenhaComponent } from './views/alterar-senha/alterar-senha.component';
+import { EditarInteressesComponent } from './views/editar-interesses/editar-interesses.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'alterar-senha',
     component: AlterarSenhaComponent
+  },
+  {
+    path: 'editar-interesses',
+    component: EditarInteressesComponent
   }
 ];
 

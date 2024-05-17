@@ -1,0 +1,40 @@
+<section class="pg">
+
+  <!-- Título da página -->
+
+  <h2 class="titulo-pg">Interesses/Habilidades</h2>
+
+  <!-- Card -->
+
+  <app-card [titulo]="'Editar Interesses/Habilidades'" [width]="'30%'">
+
+    <!-- Checkboxes das áreas -->
+
+    <div class="form-check mx-5 mb-2" *ngFor="let area of areasEnum">
+      <input class="form-check-input" type="checkbox" [value]="area" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        {{ area }}
+      </label>
+    </div>
+
+    <!-- Botões de 'Cancelar' e 'Voltar' -->
+
+    <div class="row mt-5 mb-3">
+
+      <div class="col">
+        <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-perfil">
+          Cancelar
+        </button>
+      </div>
+
+      <div class="col">
+        <button type="button" class="btn btn-dark d-block mx-auto w-50" routerLink="/editar-perfil">
+          Salvar
+        </button>
+      </div>
+
+    </div>
+
+  </app-card>
+
+</section>
