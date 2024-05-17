@@ -1,1 +1,59 @@
-<p>card-match-aprendiz works!</p>
+<div class="card mb-3">
+  <div class="card-body">
+
+    <h3 class="text-center">{{ nomeAprendiz }}</h3>
+    <h5 class="text-center">Aprendiz</h5>
+
+    <div class="row mt-4">
+      <div class="col">
+        <h4>Gênero: </h4>
+      </div>
+      <div class="col">
+        <p>{{ generoAprendiz }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4>Email para contato: </h4>
+      </div>
+      <div class="col">
+        <p>{{ emailAprendiz }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4>Interesses: </h4>
+      </div>
+      <div class="col">
+        <p>{{ interesseAprendiz }}</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="col">
+        <h4>Formação: </h4>
+      </div>
+      <div class="col">
+        <p>Nível: {{ nivelFormacao }}</p>
+      </div>
+      <div class="col">
+        <p>Curso: {{ nomeCurso }}</p>
+      </div>
+      <div class="col">
+        <p>Instituição: {{ instituicao }}</p>
+      </div>
+      <hr class="hr"/>
+    </div>
+
+
+    <button type="button" class="btn btn-danger d-block mx-auto w-50 mt-3">
+      Desfazer Match
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-x-lg mx-2" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+      </svg>
+    </button>
+
+  </div>
+</div>

@@ -1,1 +1,35 @@
-<p>matches works!</p>
+<section class="pg">
+
+  <!-- Título da página -->
+
+  <h2 class="titulo-pg">Matches</h2>
+
+  <!-- Card -->
+
+  <app-card [titulo]="''" [width]="'30%'">
+
+    <!-- Opções 'Voltar'  e 'Consultar Matches' -->
+
+    <div class="col mb-3">
+      <button type="button" class="btn btn-danger w-100" routerLink="/inicio">
+        Voltar
+      </button>
+    </div>
+
+    <button type="button" class="font-weight-bold btn btn-success my-3 w-100 btn-lg negrito">
+      Consultar Mentores/Aprendizes
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search mx-2" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+      </svg>
+    </button>
+
+  </app-card>
+
+</section>
+
+<section class="area-cards mt-5">
+
+  <app-card-match-aprendiz></app-card-match-aprendiz>
+  <app-card-match-mentor></app-card-match-mentor>
+
+</section>
