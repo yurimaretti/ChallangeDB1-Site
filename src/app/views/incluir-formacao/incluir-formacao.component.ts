@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GrauInstrucao } from 'src/app/enums/grauInstrucao';
 
 @Component({
   selector: 'app-incluir-formacao',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./incluir-formacao.component.scss']
 })
 export class IncluirFormacaoComponent {
-
+  grauEnum = Object.values(GrauInstrucao);
 }

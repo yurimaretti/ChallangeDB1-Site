@@ -1,4 +1,4 @@
-export enum AreasConhecimento {
+export enum GrauInstrucao {
   FUNDAMENTAL = "Fundamental",
   MEDIO = "Médio",
   BACHARELADO = "Superior - Bacharelado",

@@ -1,1 +1,49 @@
-<p>incluir-formacao works!</p>
+<section class="pg">
+
+  <!-- Título da página -->
+
+  <h2 class="titulo-pg">Incluir Formação</h2>
+
+  <!-- Card -->
+
+  <app-card [width]="'30%'">
+
+    <!-- Formulário inclusão formação -->
+
+    <label for="grau" class="form-label">Nível</label>
+    <select id="grau" class="form-select mb-3">
+      <option *ngFor="let grau of grauEnum" [value]="grau">{{ grau }}</option>
+    </select>
+
+    <div class="mb-3">
+      <label for="curso" class="form-label">Curso</label>
+      <input type="text" class="form-control" id="curso" placeholder="Informe o nome do curso">
+    </div>
+
+    <div class="mb-3">
+      <label for="instituicao" class="form-label">Instituição</label>
+      <input type="text" id="instituicao" class="form-control" placeholder="Informe o nome da Instituição de Ensino">
+    </div>
+
+    <!-- Botões de 'Cancelar' e 'Salvar' -->
+
+    <div class="row mt-5 mb-3">
+
+      <div class="col">
+        <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-formacao">
+          Cancelar
+        </button>
+      </div>
+
+      <div class="col">
+        <button type="button" class="btn btn-dark d-block mx-auto w-50" routerLink="/editar-formacao">
+          Salvar
+        </button>
+      </div>
+
+    </div>
+
+  </app-card>
+
+</section>
+
