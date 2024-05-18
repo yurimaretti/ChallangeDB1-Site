@@ -3,6 +3,9 @@ import { Genero } from '../../enums/generos';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { passwordMatchValidator } from 'src/app/services/passwordMatchValidator';
+import { ApiService } from 'src/app/services/api-service.service';
+import { AprendizModel } from 'src/app/models/aprendizModel';
+import { MentorModel } from 'src/app/models/mentorModel';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,6 +20,7 @@ export class CadastroComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +36,51 @@ export class CadastroComponent implements OnInit {
 
   cadastrarUsuario() {
     if (this.formulario.valid) {
-      this.router.navigate(['/login'])
+      const tipoCadastro = this.formulario.get('tipoCadastro')?.value;
+
+      if (tipoCadastro === 'Aprendiz') {
+        const aprendiz: AprendizModel = {
+          emailAprendiz: this.formulario.get('emailUsuario')?.value,
+          nomeAprendiz: this.formulario.get('nomeUsuario')?.value,
+          generoAprendiz: this.formulario.get('genero')?.value,
+          senhaAprendiz: this.formulario.get('senhaUsuario1')?.value,
+          formacaoAprendiz: [],
+          interesse: [],
+          match: []
+        };
+        this.apiService.incluirAprdz(aprendiz).subscribe(
+          response => {
+            // Sucesso no cadastro
+            alert('Aprendiz cadastrado!');
+            this.router.navigate(['/login']);
+          },
+          error => {
+            // Tratar erro
+            console.error('Erro ao cadastrar aprendiz:', error);
+          }
+        );
+      } else if (tipoCadastro === 'Mentor') {
+        const mentor: MentorModel = {
+          emailMentor: this.formulario.get('emailUsuario')?.value,
+          nomeMentor: this.formulario.get('nomeUsuario')?.value,
+          generoMentor: this.formulario.get('genero')?.value,
+          senhaMentor: this.formulario.get('senhaUsuario1')?.value,
+          formacaoMentor: [],
+          habilidade: [],
+          match: []
+        };
+        this.apiService.incluirMentor(mentor).subscribe(
+          response => {
+            // Sucesso no cadastro
+            alert('Mentor cadastrado!');
+            this.router.navigate(['/login']);
+          },
+          error => {
+            // Tratar erro
+            console.error('Erro ao cadastrar mentor:', error);
+          }
+        );
+      }
     }
   }
 }
