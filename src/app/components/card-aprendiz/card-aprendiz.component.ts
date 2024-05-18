@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { InteresseModel } from 'src/app/models/interesseModel';
 
 @Component({
   selector: 'app-card-aprendiz',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-aprendiz.component.scss']
 })
 export class CardAprendizComponent {
-  @Input() nomeAprendiz: String = "Yuri Maretti Cornacioni";
-  @Input() generoAprendiz: String = "Masculino";
-  @Input() interesseAprendiz: String = "História, Tecnologia";
+  @Input() nomeAprendiz: String = "";
+  @Input() generoAprendiz: String = "";
+  @Input() interesseAprendiz: InteresseModel[] | undefined;
 }

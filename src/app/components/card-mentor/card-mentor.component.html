@@ -18,7 +18,9 @@
         <h4>Habilidades: </h4>
       </div>
       <div class="col">
-        <p>{{ habilidadeMentor }}</p>
+        <ul>
+          <li *ngFor="let habilidade of habilidadeMentor">{{ habilidade.areaHabilidade }}</li>
+        </ul>
       </div>
     </div>
 

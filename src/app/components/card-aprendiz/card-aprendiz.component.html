@@ -18,7 +18,9 @@
         <h4>Interesses: </h4>
       </div>
       <div class="col">
-        <p>{{ interesseAprendiz }}</p>
+        <ul>
+          <li *ngFor="let interesse of interesseAprendiz">{{ interesse.areaInteresse }}</li>
+        </ul>
       </div>
     </div>
 
