@@ -96,12 +96,24 @@
 
   <div *ngIf="tipoCadastro === 'Aprendiz'">
     <div *ngFor="let mentor of mentores">
-      <app-card-mentor [nomeMentor]="mentor.nomeMentor" [generoMentor]="mentor.generoMentor" [habilidadeMentor]="mentor.habilidade"></app-card-mentor>
+      <app-card-mentor
+        [emailAprendiz]="email"
+        [emailMentor]="mentor.emailMentor"
+        [nomeMentor]="mentor.nomeMentor"
+        [generoMentor]="mentor.generoMentor"
+        [habilidadeMentor]="mentor.habilidade">
+      </app-card-mentor>
     </div>
   </div>
   <div *ngIf="tipoCadastro === 'Mentor'">
     <div *ngFor="let aprendiz of aprendizes">
-      <app-card-aprendiz [nomeAprendiz]="aprendiz.nomeAprendiz" [generoAprendiz]="aprendiz.generoAprendiz" [interesseAprendiz]="aprendiz.interesse"></app-card-aprendiz>
+      <app-card-aprendiz
+        [emailMentor]="email"
+        [emailAprendiz]="aprendiz.emailAprendiz"
+        [nomeAprendiz]="aprendiz.nomeAprendiz"
+        [generoAprendiz]="aprendiz.generoAprendiz"
+        [interesseAprendiz]="aprendiz.interesse">
+      </app-card-aprendiz>
     </div>
   </div>
 
