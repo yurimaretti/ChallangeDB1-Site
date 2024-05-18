@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { FormMentorModel } from 'src/app/models/formMentorModel';
+import { HabilidadeModel } from 'src/app/models/habilidadeModel';
 
 @Component({
   selector: 'app-card-match-mentor',
@@ -6,11 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-match-mentor.component.scss']
 })
 export class CardMatchMentorComponent {
-  @Input() nomeMentor: String = "Duílio Alencar";
-  @Input() emailMentor: String = "duds@yahoo.com";
-  @Input() generoMentor: String = "Masculino";
-  @Input() interesseMentor: String = "Direito, Esportes";
-  @Input() nivelFormacao: String = "Superior - Bacharel";
-  @Input() nomeCurso: String = "Direito";
-  @Input() instituicao: String = "Universidade ABC";
+  @Input() nomeMentor: String = "";
+  @Input() emailMentor: String = "";
+  @Input() generoMentor: String = "";
+  @Input() habilidadeMentor: HabilidadeModel[] | undefined;
+  @Input() formacaoMentor: FormMentorModel[] | undefined;
 }

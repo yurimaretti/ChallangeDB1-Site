@@ -27,7 +27,7 @@
         <h4>Interesses: </h4>
       </div>
       <div class="col">
-        <p>{{ interesseAprendiz }}</p>
+        <p *ngFor="let interesse of interesseAprendiz">{{ interesse.areaInteresse }}</p>
       </div>
     </div>
 
@@ -35,18 +35,19 @@
       <div class="col">
         <h4>Formação: </h4>
       </div>
-      <div class="col">
-        <p>Nível: {{ nivelFormacao }}</p>
+      <div *ngFor="let formacao of formacaoAprendiz">
+        <div class="col">
+          <p>Nível: {{ formacao.nivelFormAprdz }}</p>
+        </div>
+        <div class="col">
+          <p>Curso: {{ formacao.cursoAprdz }}</p>
+        </div>
+        <div class="col">
+          <p>Instituição: {{ formacao.instAprdz }}</p>
+        </div>
+        <hr class="hr"/>
       </div>
-      <div class="col">
-        <p>Curso: {{ nomeCurso }}</p>
-      </div>
-      <div class="col">
-        <p>Instituição: {{ instituicao }}</p>
-      </div>
-      <hr class="hr"/>
     </div>
-
 
     <button type="button" class="btn btn-danger d-block mx-auto w-50 mt-3">
       Desfazer Match

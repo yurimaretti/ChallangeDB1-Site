@@ -14,22 +14,22 @@ import { MatchModel } from '../models/matchModel';
 })
 export class ApiService {
 
-  private readonly BASE_URL = 'http://localhost:5003/api';
+  private readonly BASE_URL = 'http://localhost:5003';
 
   constructor(private http: HttpClient) {}
 
   // Endpoints Aprendiz
 
   incluirAprdz(dados: AprendizModel): Observable<AprendizModel> {
-    return this.http.post<AprendizModel>(`${this.BASE_URL}/Aprendiz`, dados);
+    return this.http.post<AprendizModel>(`${this.BASE_URL}/api/Aprendiz`, dados);
   }
 
   getAprendiz(): Observable<AprendizModel[]> {
-    return this.http.get<AprendizModel[]>(`${this.BASE_URL}/Aprendiz`);
+    return this.http.get<AprendizModel[]>(`${this.BASE_URL}/api/Aprendiz`);
   }
 
   getAprendizPorEmail(emailAprendiz: string): Observable<AprendizModel> {
-    return this.http.get<AprendizModel>(`${this.BASE_URL}/Aprendiz/${emailAprendiz}`);
+    return this.http.get<AprendizModel>(`${this.BASE_URL}/api/Aprendiz/${emailAprendiz}`);
   }
 
   getMentoresMatchPorEmail(emailAprendiz: string): Observable<MentorModel[]> {
@@ -37,21 +37,21 @@ export class ApiService {
   }
 
   atualizarAprdz(emailAprendiz: string, dados: AprendizModel): Observable<AprendizModel> {
-    return this.http.put<AprendizModel>(`${this.BASE_URL}/Aprendiz/${emailAprendiz}`, dados);
+    return this.http.put<AprendizModel>(`${this.BASE_URL}/api/Aprendiz/${emailAprendiz}`, dados);
   }
 
   // Endpoints Mentor
 
   incluirMentor(dados: MentorModel): Observable<MentorModel> {
-    return this.http.post<MentorModel>(`${this.BASE_URL}/Mentor`, dados);
+    return this.http.post<MentorModel>(`${this.BASE_URL}/api/Mentor`, dados);
   }
 
   getMentor(): Observable<MentorModel[]> {
-    return this.http.get<MentorModel[]>(`${this.BASE_URL}/Mentor`);
+    return this.http.get<MentorModel[]>(`${this.BASE_URL}/api/Mentor`);
   }
 
   getMentorPorEmail(emailMentor: string): Observable<MentorModel> {
-    return this.http.get<MentorModel>(`${this.BASE_URL}/Mentor/${emailMentor}`);
+    return this.http.get<MentorModel>(`${this.BASE_URL}/api/Mentor/${emailMentor}`);
   }
 
   getAprendizesMatchPorEmail(emailMentor: string): Observable<AprendizModel[]> {
@@ -59,84 +59,84 @@ export class ApiService {
   }
 
   atualizarMentor(emailMentor: string, dados: MentorModel): Observable<MentorModel> {
-    return this.http.put<MentorModel>(`${this.BASE_URL}/Mentor/${emailMentor}`, dados);
+    return this.http.put<MentorModel>(`${this.BASE_URL}/api/Mentor/${emailMentor}`, dados);
   }
 
   // Endpoints Formação Aprendiz
 
   incluirFormAprdz(dados: FormAprdzModel): Observable<FormAprdzModel> {
-    return this.http.post<FormAprdzModel>(`${this.BASE_URL}/FormacaoAprendiz`, dados);
+    return this.http.post<FormAprdzModel>(`${this.BASE_URL}/api/FormacaoAprendiz`, dados);
   }
 
   getFormAprdzPorEmail(emailAprendiz: string): Observable<FormAprdzModel[]> {
-    return this.http.get<FormAprdzModel[]>(`${this.BASE_URL}/FormacaoAprendiz/${emailAprendiz}`);
+    return this.http.get<FormAprdzModel[]>(`${this.BASE_URL}/api/FormacaoAprendiz/${emailAprendiz}`);
   }
 
   excluirFormAprdz(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.BASE_URL}/FormacaoAprendiz/${id}`);
+    return this.http.delete<void>(`${this.BASE_URL}/api/FormacaoAprendiz/${id}`);
   }
 
   // Endpoints Formação Mentor
 
   incluirFormMentor(dados: FormMentorModel): Observable<FormMentorModel> {
-    return this.http.post<FormMentorModel>(`${this.BASE_URL}/FormacaoMentor`, dados);
+    return this.http.post<FormMentorModel>(`${this.BASE_URL}/api/FormacaoMentor`, dados);
   }
 
   getFormMentorPorEmail(emailMentor: string): Observable<FormMentorModel[]> {
-    return this.http.get<FormMentorModel[]>(`${this.BASE_URL}/FormacaoMentor/${emailMentor}`);
+    return this.http.get<FormMentorModel[]>(`${this.BASE_URL}/api/FormacaoMentor/${emailMentor}`);
   }
 
   excluirFormMentor(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.BASE_URL}/FormacaoMentor/${id}`);
+    return this.http.delete<void>(`${this.BASE_URL}/api/FormacaoMentor/${id}`);
   }
 
   // Endpoints Habilidade
 
   incluirHabilidade(dados: HabilidadeModel): Observable<HabilidadeModel> {
-    return this.http.post<HabilidadeModel>(`${this.BASE_URL}/Habilidade`, dados);
+    return this.http.post<HabilidadeModel>(`${this.BASE_URL}/api/Habilidade`, dados);
   }
 
   getHabilidadePorEmail(emailMentor: string): Observable<HabilidadeModel> {
-    return this.http.get<HabilidadeModel>(`${this.BASE_URL}/Habilidade/${emailMentor}`);
+    return this.http.get<HabilidadeModel>(`${this.BASE_URL}/api/Habilidade/${emailMentor}`);
   }
 
   atualizarHabilidade(habilidadeId: number, dados: HabilidadeModel): Observable<HabilidadeModel> {
-    return this.http.put<HabilidadeModel>(`${this.BASE_URL}/Habilidade/${habilidadeId}`, dados);
+    return this.http.put<HabilidadeModel>(`${this.BASE_URL}/api/Habilidade/${habilidadeId}`, dados);
   }
 
   // Endpoints Interesse
 
   incluirInteresse(dados: InteresseModel): Observable<InteresseModel> {
-    return this.http.post<InteresseModel>(`${this.BASE_URL}/Interesse`, dados);
+    return this.http.post<InteresseModel>(`${this.BASE_URL}/api/Interesse`, dados);
   }
 
   getInteressePorEmail(emailAprdz: string): Observable<InteresseModel> {
-    return this.http.get<InteresseModel>(`${this.BASE_URL}/Interesse/${emailAprdz}`);
+    return this.http.get<InteresseModel>(`${this.BASE_URL}/api/Interesse/${emailAprdz}`);
   }
 
   atualizarInteresse(interesseId: number, dados: InteresseModel): Observable<InteresseModel> {
-    return this.http.put<InteresseModel>(`${this.BASE_URL}/Interesse/${interesseId}`, dados);
+    return this.http.put<InteresseModel>(`${this.BASE_URL}/api/Interesse/${interesseId}`, dados);
   }
 
   // Endpoints Match
 
   incluirMatch(dados: MatchModel): Observable<MatchModel> {
-    return this.http.post<MatchModel>(`${this.BASE_URL}/Match`, dados);
+    return this.http.post<MatchModel>(`${this.BASE_URL}/api/Match`, dados);
   }
 
   getMatchPorAprdz(emailAprdz: string): Observable<MatchModel> {
-    return this.http.get<MatchModel>(`${this.BASE_URL}/Match/por-aprdz/${emailAprdz}`);
+    return this.http.get<MatchModel>(`${this.BASE_URL}/api/Match/por-aprdz/${emailAprdz}`);
   }
 
   getMatchPorMentor(emailMentor: string): Observable<MatchModel> {
-    return this.http.get<MatchModel>(`${this.BASE_URL}/Match/por-mentor/${emailMentor}`);
+    return this.http.get<MatchModel>(`${this.BASE_URL}/api/Match/por-mentor/${emailMentor}`);
   }
 
   getMatchPorEmails(emailAprdz: string, emailMentor: string): Observable<MatchModel> {
-    return this.http.get<MatchModel>(`${this.BASE_URL}/Match/por-emails/${emailAprdz}/${emailMentor}`);
+    return this.http.get<MatchModel>(`${this.BASE_URL}/api/Match/por-emails/${emailAprdz}/${emailMentor}`);
   }
 
   atualizarMatch(matchId: number, dados: MatchModel): Observable<MatchModel> {
-    return this.http.put<MatchModel>(`${this.BASE_URL}/Match/${matchId}`, dados);
+    return this.http.put<MatchModel>(`${this.BASE_URL}/api/Match/${matchId}`, dados);
   }
 }

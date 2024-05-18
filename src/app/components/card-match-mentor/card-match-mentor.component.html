@@ -24,10 +24,10 @@
 
     <div class="row">
       <div class="col">
-        <h4>Interesses: </h4>
+        <h4>Habilidades: </h4>
       </div>
       <div class="col">
-        <p>{{ interesseMentor }}</p>
+        <p *ngFor="let habilidade of habilidadeMentor">{{ habilidade.areaHabilidade }}</p>
       </div>
     </div>
 
@@ -35,18 +35,19 @@
       <div class="col">
         <h4>Formação: </h4>
       </div>
-      <div class="col">
-        <p>Nível: {{ nivelFormacao }}</p>
+      <div *ngFor="let formacao of formacaoMentor">
+        <div class="col">
+          <p>Nível: {{ formacao.nivelFormMentor }}</p>
+        </div>
+        <div class="col">
+          <p>Curso: {{ formacao.cursoMentor }}</p>
+        </div>
+        <div class="col">
+          <p>Instituição: {{ formacao.instMentor }}</p>
+        </div>
+        <hr class="hr"/>
       </div>
-      <div class="col">
-        <p>Curso: {{ nomeCurso }}</p>
-      </div>
-      <div class="col">
-        <p>Instituição: {{ instituicao }}</p>
-      </div>
-      <hr class="hr"/>
     </div>
-
 
     <button type="button" class="btn btn-danger d-block mx-auto w-50 mt-3">
       Desfazer Match

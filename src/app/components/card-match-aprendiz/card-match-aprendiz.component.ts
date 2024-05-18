@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { FormAprdzModel } from 'src/app/models/formAprendizModel';
+import { InteresseModel } from 'src/app/models/interesseModel';
 
 @Component({
   selector: 'app-card-match-aprendiz',
@@ -6,11 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-match-aprendiz.component.scss']
 })
 export class CardMatchAprendizComponent {
-  @Input() nomeAprendiz: String = "Yuri Maretti Cornacioni";
-  @Input() emailAprendiz: String = "yurimaretti@hotmail.com";
-  @Input() generoAprendiz: String = "Masculino";
-  @Input() interesseAprendiz: String = "História, Tecnologia";
-  @Input() nivelFormacao: String = "Superior - Tecnólogo";
-  @Input() nomeCurso: String = "Análise e Desenvolvimento de Sistemas";
-  @Input() instituicao: String = "FIAP";
+  @Input() nomeAprendiz: String = "";
+  @Input() emailAprendiz: String = "";
+  @Input() generoAprendiz: String = "";
+  @Input() interesseAprendiz: InteresseModel[] | undefined;
+  @Input() formacaoAprendiz: FormAprdzModel[] | undefined;
 }
