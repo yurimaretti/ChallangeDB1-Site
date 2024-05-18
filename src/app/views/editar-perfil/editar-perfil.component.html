@@ -2,7 +2,7 @@
 
   <!-- Título da página -->
 
-  <h2 class="titulo-pg">Editar Perfil</h2>
+  <h2 class="titulo-pg">Editar Perfil {{ tipoCadastro }}</h2>
 
   <!-- Card -->
 
@@ -54,19 +54,19 @@
 
       <!-- Botões para Editar 'Habilidades', 'Formação' e 'Senha' -->
 
-      <button type="button" class="btn btn-dark d-block mx-auto w-100 my-2" routerLink="/editar-interesses">
-        Editar Interesses/Habilidades
+      <button (click)="navegarEditarInteresses()" type="button" class="btn btn-dark d-block mx-auto w-100 my-2">
+        {{ tipoCadastro === 'Aprendiz' ? 'Editar Interesses' : 'Editar Habilidades' }}
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-circle-fill mx-3" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
         </svg>
       </button>
-      <button type="button" class="btn btn-dark d-block mx-auto w-100 my-2" routerLink="/editar-formacao">
+      <button (click)="navegarEditarFormacao()" type="button" class="btn btn-dark d-block mx-auto w-100 my-2">
         Editar Formação
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-fill mx-3" viewBox="0 0 16 16">
           <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
         </svg>
       </button>
-      <button type="button" class="btn btn-dark d-block mx-auto w-100 my-2" routerLink="/alterar-senha">
+      <button (click)="navegarAlterarSenha()" type="button" class="btn btn-dark d-block mx-auto w-100 my-2">
         Alterar Senha
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock-fill mx-3" viewBox="0 0 16 16">
           <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
@@ -78,7 +78,7 @@
       <div class="row mt-5 mb-3">
 
         <div class="col">
-          <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/inicio">
+          <button (click)="voltarInicio()" type="button" class="btn btn-danger d-block mx-auto w-50">
             Cancelar
           </button>
         </div>

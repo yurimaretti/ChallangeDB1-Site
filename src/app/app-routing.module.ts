@@ -25,31 +25,31 @@ const routes: Routes = [
     component: CadastroComponent
   },
   {
-    path: 'inicio',
+    path: 'inicio/:tipoCadastro/:email',
     component: InicioComponent
   },
   {
-    path: 'editar-perfil',
+    path: 'editar-perfil/:tipoCadastro/:email',
     component: EditarPerfilComponent
   },
   {
-    path: 'alterar-senha',
+    path: 'alterar-senha/:tipoCadastro/:email',
     component: AlterarSenhaComponent
   },
   {
-    path: 'editar-interesses',
+    path: 'editar-interesses/:tipoCadastro/:email',
     component: EditarInteressesComponent
   },
   {
-    path: 'editar-formacao',
+    path: 'editar-formacao/:tipoCadastro/:email',
     component: EditarFormacaoComponent
   },
   {
-    path: 'incluir-formacao',
+    path: 'incluir-formacao/:tipoCadastro/:email',
     component: IncluirFormacaoComponent
   },
   {
-    path: 'matches',
+    path: 'matches/:tipoCadastro/:email',
     component: MatchesComponent
   }
 ];

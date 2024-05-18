@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit {
 
   realizarLogin() {
     if (this.formulario.valid) {
-      this.router.navigate(['/inicio'])
+      const email = this.formulario.get('emailUsuario')?.value;
+      const tipoCadastro = this.formulario.get('tipoCadastro')?.value;
+      this.router.navigate(['/inicio', tipoCadastro, email]);
     }
   }
 }

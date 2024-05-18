@@ -33,11 +33,11 @@
 
       <div class="col">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="tipoCadastro" formControlName="tipoCadastro" id="aprendiz" value="aprendiz">
+          <input class="form-check-input" type="radio" name="tipoCadastro" formControlName="tipoCadastro" id="aprendiz" value="Aprendiz">
           <label class="form-check-label" for="aprendiz">Aprendiz</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="tipoCadastro" formControlName="tipoCadastro" id="mentor" value="mentor">
+          <input class="form-check-input" type="radio" name="tipoCadastro" formControlName="tipoCadastro" id="mentor" value="Mentor">
           <label class="form-check-label" for="mentor">Mentor</label>
         </div>
         <div class="mensagem-erro mt-1" *ngIf="formulario.get('tipoCadastro')?.errors?.['required'] && formulario.get('tipoCadastro')?.touched">

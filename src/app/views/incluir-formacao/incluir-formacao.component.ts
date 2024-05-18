@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GrauInstrucao } from 'src/app/enums/grauInstrucao';
 
 @Component({
@@ -12,13 +12,19 @@ export class IncluirFormacaoComponent implements OnInit {
 
   formulario!: FormGroup;
   grauEnum = Object.values(GrauInstrucao);
+  tipoCadastro: string = '';
+  email: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.tipoCadastro = this.route.snapshot.paramMap.get('tipoCadastro') || '';
+    this.email = this.route.snapshot.paramMap.get('email') || '';
+
     this.formulario = this.formBuilder.group({
       nivel: ['', Validators.required],
       curso: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(70)]],
@@ -28,7 +34,19 @@ export class IncluirFormacaoComponent implements OnInit {
 
   cadastrarFormacao() {
     if (this.formulario.valid) {
-      this.router.navigate(['/editar-formacao'])
+      if (this.tipoCadastro === 'Aprendiz') {
+        this.router.navigate(['/editar-formacao', this.tipoCadastro, this.email]);
+      } else if (this.tipoCadastro === 'Mentor') {
+        this.router.navigate(['/editar-formacao', this.tipoCadastro, this.email]);
+      }
+    }
+  }
+
+  voltarEditarFormacao(): void {
+    if (this.tipoCadastro === 'Aprendiz') {
+      this.router.navigate(['/editar-formacao', this.tipoCadastro, this.email]);
+    } else if (this.tipoCadastro === 'Mentor') {
+      this.router.navigate(['/editar-formacao', this.tipoCadastro, this.email]);
     }
   }
 }

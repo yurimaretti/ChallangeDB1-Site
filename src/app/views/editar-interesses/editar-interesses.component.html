@@ -2,11 +2,11 @@
 
   <!-- Título da página -->
 
-  <h2 class="titulo-pg">Interesses/Habilidades</h2>
+  <h2 class="titulo-pg">{{ tipoCadastro === 'Aprendiz' ? 'Editar Interesses' : 'Editar Habilidades' }}</h2>
 
   <!-- Card -->
 
-  <app-card [titulo]="'Editar Interesses/Habilidades'" [width]="'30%'">
+  <app-card [titulo]="tipoCadastro === 'Aprendiz' ? 'Selecione os Interesses' : 'Selecione as Habilidades'" [width]="'30%'">
 
     <!-- Checkboxes das áreas -->
 
@@ -22,13 +22,13 @@
     <div class="row mt-5 mb-3">
 
       <div class="col">
-        <button type="button" class="btn btn-danger d-block mx-auto w-50" routerLink="/editar-perfil">
+        <button (click)="voltarEditarPerfil()" type="button" class="btn btn-danger d-block mx-auto w-50">
           Cancelar
         </button>
       </div>
 
       <div class="col">
-        <button type="button" class="btn btn-dark d-block mx-auto w-50" routerLink="/editar-perfil">
+        <button (click)="salvarInteresses()" type="button" class="btn btn-dark d-block mx-auto w-50">
           Salvar
         </button>
       </div>
