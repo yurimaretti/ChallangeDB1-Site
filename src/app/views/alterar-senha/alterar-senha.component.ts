@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api-service.service';
 import { passwordMatchValidator } from 'src/app/services/passwordMatchValidator';
 
 @Component({
@@ -16,7 +17,8 @@ export class AlterarSenhaComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -31,10 +33,44 @@ export class AlterarSenhaComponent implements OnInit {
 
   alterarSenha() {
     if (this.formulario.valid) {
+      const novaSenha = this.formulario.get('senhaUsuario1')?.value;
+
       if (this.tipoCadastro === 'Aprendiz') {
-        this.router.navigate(['/editar-perfil', this.tipoCadastro, this.email]);
+        this.apiService.getAprendizPorEmail(this.email).subscribe(
+          aprendiz => {
+            aprendiz.senhaAprendiz = novaSenha;
+            this.apiService.atualizarAprdz(this.email, aprendiz).subscribe(
+              response => {
+                alert('Senha Alterada!');
+                this.router.navigate(['/editar-perfil', this.tipoCadastro, this.email]);
+              },
+              error => {
+                console.error('Erro ao alterar senha do Aprendiz:', error);
+              }
+            );
+          },
+          error => {
+            console.error('Erro ao buscar dados do Aprendiz:', error);
+          }
+        );
       } else if (this.tipoCadastro === 'Mentor') {
-        this.router.navigate(['/editar-perfil', this.tipoCadastro, this.email]);
+        this.apiService.getMentorPorEmail(this.email).subscribe(
+          mentor => {
+            mentor.senhaMentor = novaSenha;
+            this.apiService.atualizarMentor(this.email, mentor).subscribe(
+              response => {
+                alert('Senha Alterada!');
+                this.router.navigate(['/editar-perfil', this.tipoCadastro, this.email]);
+              },
+              error => {
+                console.error('Erro ao alterar senha do Mentor:', error);
+              }
+            );
+          },
+          error => {
+            console.error('Erro ao buscar dados do Mentor:', error);
+          }
+        );
       }
     }
   }
