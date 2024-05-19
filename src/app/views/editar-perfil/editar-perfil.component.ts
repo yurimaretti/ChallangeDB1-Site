@@ -70,12 +70,34 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   atualizarCadastro(): void {
-    if (this.formulario.valid) {
-      if (this.tipoCadastro === 'Aprendiz') {
-        this.router.navigate(['/inicio', this.tipoCadastro, this.email]);
-      } else if (this.tipoCadastro === 'Mentor') {
-        this.router.navigate(['/inicio', this.tipoCadastro, this.email]);
-      }
+    if (this.tipoCadastro === 'Aprendiz') {
+      this.apiService.getAprendizPorEmail(this.email).subscribe(
+        (data: AprendizModel) => {
+          const aprendizAtualizado: AprendizModel = {
+            ...data,
+            nomeAprendiz: this.formulario.value.nomeUsuario,
+            generoAprendiz: this.formulario.value.genero
+          };
+          this.apiService.atualizarAprdz(this.email, aprendizAtualizado).subscribe(() => {
+            alert('Cadastro Atualizado!');
+            this.router.navigate(['/inicio', this.tipoCadastro, this.email]);
+          });
+        }
+      );
+    } else if (this.tipoCadastro === 'Mentor') {
+      this.apiService.getMentorPorEmail(this.email).subscribe(
+        (data: MentorModel) => {
+          const mentorAtualizado: MentorModel = {
+            ...data,
+            nomeMentor: this.formulario.value.nomeUsuario,
+            generoMentor: this.formulario.value.genero
+          };
+          this.apiService.atualizarMentor(this.email, mentorAtualizado).subscribe(() => {
+            alert('Cadastro Atualizado!');
+            this.router.navigate(['/inicio', this.tipoCadastro, this.email]);
+          });
+        }
+      );
     }
   }
 
