@@ -1,27 +1,21 @@
-# Challangedb1
+Site desenvolvido em Angular 16, com adição do Bootstrap e SCSS, para o Challange da empresa DB1, no âmbito do curso de Análise e Desenvolvimento de Sistemas da FIAP.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+O Banco de Dados do app foi desenvolvido no Oracle SQL Developer.
 
-## Development server
+A API para o app foi desenvolvida em C#, e se encontra no repositório "/yurimaretti/ChallangeDB1-API"
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Funcionalidades do site:
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Cadastro do Mentor e Aprendiz.
+Login do Mentor e Aprendiz.
+Inclusão e Exclusão de Formações para o Mentor e Aprendiz.
+Inclusão e Edição de Interesses para o Aprendiz e Habilidades para o Mentor.
+Editar dados do perfil do Mentor e Aprendiz.
+Alteração da senha do Mentor e Aprendiz.
+Listagem dos Aprendizes e Mentores Cadastrados.
+Filtro avançado na lista de Mentores e Aprendizes, de acordo com a Habilidade/Interesse desejado.
+Funcionalidade para curtir o Mentor/Aprendiz, com notificação Push ao realizar a ação.
+Match, no caso de o Mentor curtir um Aprendiz e esse Aprendiz curtir o mesmo Mentor.
+Listagem dos Mentores/Aprendizes que realizaram Match com o usuário.
+Possibilidade de "descurtir" o Mentor/Aprendiz, desfazendo assim o Match.
+App possui componentes próprios, logo próprio, e cores personalizadas.
