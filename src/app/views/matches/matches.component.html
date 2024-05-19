@@ -32,6 +32,7 @@
   <div *ngIf="tipoCadastro === 'Aprendiz'">
     <div *ngFor="let mentor of mentores">
       <app-card-match-mentor
+        [emailAprendiz]="email"
         [emailMentor]="mentor.emailMentor"
         [nomeMentor]="mentor.nomeMentor"
         [generoMentor]="mentor.generoMentor"
@@ -44,6 +45,7 @@
   <div *ngIf="tipoCadastro === 'Mentor'">
     <div *ngFor="let aprendiz of aprendizes">
       <app-card-match-aprendiz
+        [emailMentor]="email"
         [emailAprendiz]="aprendiz.emailAprendiz"
         [nomeAprendiz]="aprendiz.nomeAprendiz"
         [generoAprendiz]="aprendiz.generoAprendiz"
