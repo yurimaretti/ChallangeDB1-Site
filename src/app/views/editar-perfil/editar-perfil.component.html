@@ -12,7 +12,7 @@
 
     <form [formGroup]="formulario">
 
-      <button type="button" class="font-weight-bold btn btn-success my-3 w-100 btn-lg negrito">
+      <button (click)="consultarDados()" type="button" class="font-weight-bold btn btn-success my-3 w-100 btn-lg negrito">
         Consultar Dados para Edição
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search mx-2" viewBox="0 0 16 16">
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -46,8 +46,22 @@
         </div>
 
         <div class="col my-3">
-          <h3>Interesses/Habilidades</h3>
-          <p>Sem interesses cadastrados</p>
+          <h3>{{ tipoCadastro === 'Aprendiz' ? 'Interesses' : 'Habilidades' }}</h3>
+
+          <div *ngIf="tipoCadastro === 'Aprendiz'">
+            <div *ngFor="let interesse of interessesAprendiz">
+              <p>{{ interesse.areaInteresse }}</p>
+            </div>
+            <p>{{ areaInteresse }}</p>
+          </div>
+
+          <div *ngIf="tipoCadastro === 'Mentor'">
+            <div *ngFor="let habilidade of habilidadesMentor">
+              <p>{{ habilidade.areaHabilidade }}</p>
+            </div>
+            {{ areaHabilidade }}
+          </div>
+
         </div>
 
       </div>
