@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormAprdzModel } from 'src/app/models/formAprendizModel';
+import { FormMentorModel } from 'src/app/models/formMentorModel';
+import { ApiService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-editar-formacao',
@@ -10,10 +13,13 @@ export class EditarFormacaoComponent {
 
   tipoCadastro: string = '';
   email: string = '';
+  formacoesAprendiz: FormAprdzModel[] = [];
+  formacoesMentor: FormMentorModel[] = [];
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +40,18 @@ export class EditarFormacaoComponent {
       this.router.navigate(['/incluir-formacao', this.tipoCadastro, this.email]);
     } else if (this.tipoCadastro === 'Mentor') {
       this.router.navigate(['/incluir-formacao', this.tipoCadastro, this.email]);
+    }
+  }
+
+  consultarFormacoes(): void {
+    if (this.tipoCadastro === 'Aprendiz') {
+      this.apiService.getFormAprdzPorEmail(this.email).subscribe(data => {
+        this.formacoesAprendiz = data;
+      });
+    } else if (this.tipoCadastro === 'Mentor') {
+      this.apiService.getFormMentorPorEmail(this.email).subscribe(data => {
+        this.formacoesMentor = data;
+      });
     }
   }
 }

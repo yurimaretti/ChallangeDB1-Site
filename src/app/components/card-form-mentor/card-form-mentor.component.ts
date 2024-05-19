@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-form-mentor.component.scss']
 })
 export class CardFormMentorComponent {
-  @Input() nomeInstituicao: String = "Universadade ABC";
-  @Input() nivelEnsino: String = "Superior - Bacharelado";
-  @Input() nomeCurso: String = "Direito";
+  @Input() nomeInstituicao: String = "";
+  @Input() nivelEnsino: String = "";
+  @Input() nomeCurso: String = "";
 }

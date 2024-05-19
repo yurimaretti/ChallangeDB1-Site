@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-form-aprendiz.component.scss']
 })
 export class CardFormAprendizComponent {
-  @Input() nomeInstituicao: String = "FIAP";
-  @Input() nivelEnsino: String = "Superior - Tecnólogo";
-  @Input() nomeCurso: String = "Análise e Desenvolvimento de Sistemas";
+  @Input() nomeInstituicao: String = "";
+  @Input() nivelEnsino: String = "";
+  @Input() nomeCurso: String = "";
 }
