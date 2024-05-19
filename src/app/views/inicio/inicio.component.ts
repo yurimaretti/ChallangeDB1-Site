@@ -17,6 +17,9 @@ export class InicioComponent {
   email: string = '';
   aprendizes: AprendizModel[] = [];
   mentores: MentorModel[] = [];
+  filteredAprendizes: AprendizModel[] = [];
+  filteredMentores: MentorModel[] = [];
+  selectedArea: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -49,11 +52,38 @@ export class InicioComponent {
     if (this.tipoCadastro === 'Aprendiz') {
       this.apiService.getMentor().subscribe(data => {
         this.mentores = data;
+        this.filteredMentores = data;
       });
     } else if (this.tipoCadastro === 'Mentor') {
       this.apiService.getAprendiz().subscribe(data => {
         this.aprendizes = data;
+        this.filteredAprendizes = data;
       });
+    }
+  }
+
+  pesquisarAvancado(): void {
+    if (this.tipoCadastro === 'Aprendiz') {
+      this.filteredMentores = this.mentores.filter(mentor =>
+        mentor.habilidade?.some(habilidade =>
+          habilidade.areaHabilidade.includes(this.selectedArea)
+        ) || false
+      );
+    } else if (this.tipoCadastro === 'Mentor') {
+      this.filteredAprendizes = this.aprendizes.filter(aprendiz =>
+        aprendiz.interesse?.some(interesse =>
+          interesse.areaInteresse.includes(this.selectedArea)
+        ) || false
+      );
+    }
+  }
+
+  retirarFiltro(): void {
+    this.selectedArea = '';
+    if (this.tipoCadastro === 'Aprendiz') {
+      this.filteredMentores = this.mentores;
+    } else if (this.tipoCadastro === 'Mentor') {
+      this.filteredAprendizes = this.aprendizes;
     }
   }
 }

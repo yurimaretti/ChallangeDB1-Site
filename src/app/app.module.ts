@@ -22,6 +22,7 @@ import { MatchesComponent } from './views/matches/matches.component';
 import { CardMatchAprendizComponent } from './components/card-match-aprendiz/card-match-aprendiz.component';
 import { CardMatchMentorComponent } from './components/card-match-mentor/card-match-mentor.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
